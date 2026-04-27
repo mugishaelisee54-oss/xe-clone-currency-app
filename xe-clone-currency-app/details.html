@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Details - CurrencyExchange</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-exchange-alt"></i>
+                <span>Currency<span class="highlight">Exchange</span></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="converter.html"><i class="fas fa-calculator"></i> Converter</a></li>
+                <li><a href="details.html" class="active"><i class="fas fa-chart-line"></i> Details</a></li>
+                <li><a href="history.html"><i class="fas fa-history"></i> History</a></li>
+                <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+            <div class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <h1 class="page-title">Currency Details</h1>
+            
+            <div class="currency-selector-detail">
+                <label>Select Currency</label>
+                <select id="detail-currency" class="currency-detail-select">
+                    <option value="USD">🇺🇸 US Dollar (USD)</option>
+                    <option value="EUR">🇪🇺 Euro (EUR)</option>
+                    <option value="GBP">🇬🇧 British Pound (GBP)</option>
+                    <option value="JPY">🇯🇵 Japanese Yen (JPY)</option>
+                    <option value="CAD">🇨🇦 Canadian Dollar (CAD)</option>
+                    <option value="AUD">🇦🇺 Australian Dollar (AUD)</option>
+                    <option value="CHF">🇨🇭 Swiss Franc (CHF)</option>
+                    <option value="CNY">🇨🇳 Chinese Yuan (CNY)</option>
+                    <option value="INR">🇮🇳 Indian Rupee (INR)</option>
+                </select>
+            </div>
+
+            <div class="currency-info-card" id="currency-info">
+                <div class="currency-header">
+                    <div class="currency-symbol" id="currency-symbol">$</div>
+                    <div class="currency-name" id="currency-name">US Dollar</div>
+                    <div class="currency-code" id="currency-code">USD</div>
+                </div>
+                <div class="currency-stats">
+                    <div class="stat-item">
+                        <label>Current Rate (vs USD)</label>
+                        <div class="stat-value" id="current-rate">1.0000</div>
+                    </div>
+                    <div class="stat-item">
+                        <label>24h Change</label>
+                        <div class="stat-value positive" id="daily-change">+0.25%</div>
+                    </div>
+                    <div class="stat-item">
+                        <label>7d Change</label>
+                        <div class="stat-value positive" id="weekly-change">+1.12%</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <h3>Exchange Rate Trends (Last 7 Days)</h3>
+                <canvas id="rateChart"></canvas>
+            </div>
+
+            <div class="comparison-section">
+                <h3>Comparison with Other Currencies</h3>
+                <div class="comparison-grid" id="comparison-grid">
+                    <!-- Comparison cards will be populated by JS -->
+                </div>
+            </div>
+
+            <div class="historical-rates">
+                <h3>Historical Rates (Mock Data)</h3>
+                <div class="historical-table-wrapper">
+                    <table class="historical-table" id="historical-table">
+                        <thead>
+                            <tr><th>Date</th><th>Rate</th><th>Change</th></tr>
+                        </thead>
+                        <tbody id="historical-body">
+                            <!-- Historical data will be populated -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

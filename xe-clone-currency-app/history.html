@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversion History - CurrencyExchange</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-exchange-alt"></i>
+                <span>Currency<span class="highlight">Exchange</span></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="converter.html"><i class="fas fa-calculator"></i> Converter</a></li>
+                <li><a href="details.html"><i class="fas fa-chart-line"></i> Details</a></li>
+                <li><a href="history.html" class="active"><i class="fas fa-history"></i> History</a></li>
+                <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+            <div class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <h1 class="page-title">Conversion History</h1>
+            
+            <div class="history-controls">
+                <div class="filter-section">
+                    <label>Filter by Currency:</label>
+                    <select id="history-filter">
+                        <option value="all">All Currencies</option>
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                        <option value="GBP">GBP</option>
+                        <option value="JPY">JPY</option>
+                        <option value="CAD">CAD</option>
+                        <option value="AUD">AUD</option>
+                        <option value="CHF">CHF</option>
+                        <option value="CNY">CNY</option>
+                        <option value="INR">INR</option>
+                    </select>
+                </div>
+                <button id="clear-history" class="clear-history-btn">
+                    <i class="fas fa-trash-alt"></i> Clear All History
+                </button>
+            </div>
+
+            <div class="history-stats">
+                <div class="stat-card">
+                    <i class="fas fa-chart-line"></i>
+                    <div>
+                        <h4>Total Conversions</h4>
+                        <p id="total-conversions">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-calendar"></i>
+                    <div>
+                        <h4>Last 30 Days</h4>
+                        <p id="last-30-days">0</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="history-list" id="history-list">
+                <!-- History items will be dynamically populated -->
+            </div>
+
+            <div id="empty-history" class="empty-state" style="display: none;">
+                <i class="fas fa-history"></i>
+                <h3>No Conversion History</h3>
+                <p>Your conversion history will appear here. Start converting currencies to see your history!</p>
+                <a href="converter.html" class="cta-button-small">Go to Converter</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

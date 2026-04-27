@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter - CurrencyExchange</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-exchange-alt"></i>
+                <span>Currency<span class="highlight">Exchange</span></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="converter.html" class="active"><i class="fas fa-calculator"></i> Converter</a></li>
+                <li><a href="details.html"><i class="fas fa-chart-line"></i> Details</a></li>
+                <li><a href="history.html"><i class="fas fa-history"></i> History</a></li>
+                <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+            <div class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <h1 class="page-title">Currency Converter</h1>
+            
+            <div class="converter-main-card">
+                <div class="converter-wrapper">
+                    <div class="converter-section">
+                        <label>Amount</label>
+                        <input type="number" id="amount" value="1" min="0" step="any" class="amount-input-large">
+                    </div>
+
+                    <div class="converter-section">
+                        <label>From</label>
+                        <div class="currency-select-wrapper">
+                            <select id="from-currency" class="currency-select-large">
+                                <option value="USD">🇺🇸 USD - US Dollar</option>
+                                <option value="EUR" selected>🇪🇺 EUR - Euro</option>
+                                <option value="GBP">🇬🇧 GBP - British Pound</option>
+                                <option value="JPY">🇯🇵 JPY - Japanese Yen</option>
+                                <option value="CAD">🇨🇦 CAD - Canadian Dollar</option>
+                                <option value="AUD">🇦🇺 AUD - Australian Dollar</option>
+                                <option value="CHF">🇨🇭 CHF - Swiss Franc</option>
+                                <option value="CNY">🇨🇳 CNY - Chinese Yuan</option>
+                                <option value="INR">🇮🇳 INR - Indian Rupee</option>
+                                <option value="BRL">🇧🇷 BRL - Brazilian Real</option>
+                                <option value="MXN">🇲🇽 MXN - Mexican Peso</option>
+                                <option value="SGD">🇸🇬 SGD - Singapore Dollar</option>
+                            </select>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+
+                    <div class="swap-button">
+                        <button id="swap-btn" class="swap-btn">
+                            <i class="fas fa-exchange-alt"></i>
+                        </button>
+                    </div>
+
+                    <div class="converter-section">
+                        <label>To</label>
+                        <div class="currency-select-wrapper">
+                            <select id="to-currency" class="currency-select-large">
+                                <option value="USD" selected>🇺🇸 USD - US Dollar</option>
+                                <option value="EUR">🇪🇺 EUR - Euro</option>
+                                <option value="GBP">🇬🇧 GBP - British Pound</option>
+                                <option value="JPY">🇯🇵 JPY - Japanese Yen</option>
+                                <option value="CAD">🇨🇦 CAD - Canadian Dollar</option>
+                                <option value="AUD">🇦🇺 AUD - Australian Dollar</option>
+                                <option value="CHF">🇨🇭 CHF - Swiss Franc</option>
+                                <option value="CNY">🇨🇳 CNY - Chinese Yuan</option>
+                                <option value="INR">🇮🇳 INR - Indian Rupee</option>
+                                <option value="BRL">🇧🇷 BRL - Brazilian Real</option>
+                                <option value="MXN">🇲🇽 MXN - Mexican Peso</option>
+                                <option value="SGD">🇸🇬 SGD - Singapore Dollar</option>
+                            </select>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+
+                    <button id="convert-btn" class="convert-main-btn">
+                        <i class="fas fa-sync-alt"></i> Convert Now
+                    </button>
+                </div>
+
+                <div class="result-section" id="result-section" style="display: none;">
+                    <div class="result-card">
+                        <div class="result-amount">
+                            <span id="converted-amount">0.00</span>
+                        </div>
+                        <div class="result-details">
+                            <div class="rate-info">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Exchange Rate: 1 <span id="from-code">EUR</span> = <span id="exchange-rate">0.00</span> <span id="to-code">USD</span></span>
+                            </div>
+                            <div class="timestamp-info">
+                                <i class="far fa-clock"></i>
+                                <span>Last updated: <span id="timestamp">-</span></span>
+                            </div>
+                        </div>
+                        <button class="save-history-btn" onclick="saveCurrentConversion()">
+                            <i class="fas fa-save"></i> Save to History
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loading Spinner -->
+            <div id="loading-spinner" class="spinner-overlay" style="display: none;">
+                <div class="spinner"></div>
+                <p>Fetching latest rates...</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
